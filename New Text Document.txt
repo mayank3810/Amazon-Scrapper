@@ -1,0 +1,23 @@
+websiteurl = window.location.href
+$.ajax(
+                 {
+                     type:'POST',
+                     contentType:'application/json;charset-utf-08',
+                     dataType:'json',
+                     data: JSON.stringify(website),
+                     url:'http://127.0.0.1:5000/pass_val?value='+websiteurl,
+                     success:function (data) {
+                         var reply=data.reply;
+                         if (reply=="success")
+                         {
+                             return;
+                         }
+                         else
+                             {
+                             alert("some error ocured in session agent")
+                             }
+ 
+                     }
+                 }
+             );
+window.open('http://localhost:5000/my-link/')
